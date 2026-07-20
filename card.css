@@ -7707,7 +7707,25 @@ button,
   content: none !important;
 }
 
+/* Fix: first storybook page must stay above the permanent last page */
 
+.static-right-page {
+  z-index: 1;
+}
+
+.turning-sheet {
+  z-index: 4;
+}
+
+@media (max-width: 760px) {
+  .static-right-page {
+    z-index: 1 !important;
+  }
+
+  .turning-sheet {
+    z-index: 4;
+  }
+}
 
 
 
