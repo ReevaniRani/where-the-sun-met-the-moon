@@ -497,19 +497,6 @@ button {
   outline: 2px solid rgba(255, 216, 170, 0.72);
   outline-offset: 5px;
 }
-
-
-  
-
-
-
-
-
-
-
-
-
-
 /* ---------- OPEN STATE CLASSES FOR JS LATER ---------- */
 .envelope.is-open .envelope-flap {
   transform: rotateX(178deg);
@@ -1491,9 +1478,8 @@ button {
     opacity 450ms ease,
     transform 650ms ease;
 }
-/*Quick Fix: Storybook Engine Polish Fix cover, button, paper visibility, opening state*/
+/*Storybook Engine Polish Fix cover, button, paper visibility, opening state*/
 
-/* Make the button look premium, not browser default */
 .storybook .open-book-button {
   cursor: pointer;
   border: 1px solid rgba(245, 213, 138, 0.6);
@@ -1554,9 +1540,7 @@ button {
    Milestone 4.5
    Premium Book Polish
    Add at the VERY BOTTOM of card.css
-   ========================================================= */
-
-/* Make the whole object feel flatter on the desk, not floating */
+   /* ========================================================= */
 .storybook {
   transform: rotateX(6deg) rotateZ(-1deg);
   transform-origin: center center;
@@ -1900,11 +1884,7 @@ button {
     display: none;
   }
 }
-/* =========================================================
-   Milestone 5
-   Part 3: Real Page Turn CSS
-   Sheet flip states
-   ========================================================= */
+/*Milestone 5Part 3: Real Page Turn CSS Sheet flip states*/
 
 .turning-sheet.is-turning {
   transition: transform 1.25s cubic-bezier(0.76, 0, 0.24, 1);
@@ -1934,7 +1914,6 @@ button {
 /*
    Milestone 5Part 4: Page-Turn Polish Better gutter spacing,shadows, depth, and settling*/
 
-/* Give both visible pages safer inner spacing */
 .static-left-page .page-content,
 .sheet-back .page-content {
   padding-right: clamp(1.4rem, 3vw, 2.4rem);
@@ -2507,7 +2486,6 @@ button {
 }
 
 /* ---------- DECORATIVE CORNERS ---------- */
-
 .corner {
   border-color: rgba(234, 195, 106, 0.76);
   filter:
@@ -2622,8 +2600,6 @@ button {
    Readable long-form text + elegant chapter styling
    ========================================================= */
 
-/* ---------- TYPOGRAPHY VARIABLES ---------- */
-
 :root {
   --book-heading-font:
     Georgia,
@@ -2639,9 +2615,7 @@ button {
   --book-ink-soft: rgba(74, 43, 26, 0.72);
   --book-gold-ink: #8f652d;
 }
-
 /* ---------- GENERAL PAGE CONTENT ---------- */
-
 .page-content {
   font-family: var(--book-body-font);
   color: var(--book-ink);
@@ -2687,7 +2661,6 @@ button {
 }
 
 /* ---------- PAGE HEADINGS ---------- */
-
 .page-content h2 {
   margin: 0 0 1.25rem;
 
@@ -2707,7 +2680,6 @@ button {
 }
 
 /* ---------- BODY PARAGRAPHS ---------- */
-
 .page-content p:not(.page-label) {
   margin: 0 0 1rem;
 
@@ -2764,10 +2736,6 @@ button {
 }
 
 /* ---------- OPENING DROP CAP ---------- */
-/*
-  Add class="has-drop-cap" to a page-content element
-  when you want an old-storybook opening paragraph.
-*/
 .has-drop-cap > p:not(.page-label):first-of-type::first-letter {
   float: left;
 
@@ -2789,11 +2757,6 @@ button {
 }
 
 /* ---------- CENTERED TITLE PAGES ---------- */
-
-/*
-  Use class="title-page" for dedication pages,
-  chapter dividers, and emotional quote pages.
-*/
 
 .title-page .page-content {
   align-content: center;
@@ -2836,11 +2799,6 @@ button {
 
 /* ---------- QUOTE PAGE ---------- */
 
-/*
-  Use class="quote-page" for a page containing
-  one emotionally important line.
-*/
-
 .quote-page .page-content {
   align-content: center;
   justify-items: center;
@@ -2878,11 +2836,6 @@ button {
 }
 
 /* ---------- PAGE NUMBER FOUNDATION ---------- */
-
-/*
-  Later JavaScript will update these page numbers.
-  This prepares a consistent location for them.
-*/
 
 .book-page-number {
   position: absolute;
@@ -2946,8 +2899,6 @@ button {
    Milestone 6
    Part 4: Multi-Sheet Stack Support
    ========================================================= */
-
-/* Each physical sheet occupies the right half initially */
 .page-system .turning-sheet {
   grid-column: 2;
   grid-row: 1;
@@ -3388,13 +3339,6 @@ TYPOGRAPHY + OVERFLOW REPAIR Where the Sun Met the Moon multi-sheet pages */
 /* ---------------------------------------------------------
    8. LONG-FORM PAGE REPAIR
    --------------------------------------------------------- */
-
-/*
-  Remove visible scrolling from physical book pages.
-
-  Long writing will be split across additional page faces
-  instead of scrolling inside one page.
-*/
 .page-system .long-form-page .page-content {
   justify-content: flex-start;
   align-items: flex-start;
@@ -3450,7 +3394,6 @@ TYPOGRAPHY + OVERFLOW REPAIR Where the Sun Met the Moon multi-sheet pages */
 
   color: #8b5f29;
 }
-
 /* ---------------------------------------------------------
    10. PAGE NUMBER SAFETY
    --------------------------------------------------------- */
@@ -3463,7 +3406,6 @@ TYPOGRAPHY + OVERFLOW REPAIR Where the Sun Met the Moon multi-sheet pages */
 
   pointer-events: none;
 }
-
 .page-system
   .static-left-page
   .book-page-number,
@@ -3530,7 +3472,6 @@ TYPOGRAPHY + OVERFLOW REPAIR Where the Sun Met the Moon multi-sheet pages */
 /* ---------------------------------------------------------
    12. MOBILE BOOK PAGE REPAIR
    --------------------------------------------------------- */
-
 @media (max-width: 760px) {
   .page-system .page-content {
     justify-content: center;
@@ -3644,10 +3585,8 @@ TYPOGRAPHY + OVERFLOW REPAIR Where the Sun Met the Moon multi-sheet pages */
   width: 100%;
   height: 100%;
 
-  /*
-    Keeps the complete photograph visible.
-    Nothing will be cropped.
-  */
+  /*the complete photograph visible.
+    Nothing will be cropped.*/
   object-fit: contain;
   object-position: center;
 
@@ -3664,7 +3603,6 @@ TYPOGRAPHY + OVERFLOW REPAIR Where the Sun Met the Moon multi-sheet pages */
 }
 
 /* ---------- DECORATIVE PHOTO CORNERS ---------- */
-
 .photo-corner {
   position: absolute;
 
@@ -3969,10 +3907,8 @@ max-height: calc(100% - 2.8rem);
 }
 
 /*
-  Important:
   width:auto and height:auto prevent stretching.
-  max-width/max-height keep the entire image visible.
-*/
+  max-width/max-height keep the entire image visible.*/
 .first-photo-page .photo-frame img{
     width:100%;
     height:100%;
@@ -4096,7 +4032,6 @@ padding: .22rem .75rem;
    SHEET 4
    Chapter One sunrise divider + pastel cottagecore pause
    ========================================================= */
-
 /* ---------------------------------------------------------
    PAGE 8 — CHAPTER ONE DIVIDER
    --------------------------------------------------------- */
@@ -4356,7 +4291,6 @@ padding: .22rem .75rem;
 }
 
 /* ---------- VINES ---------- */
-
 .garden-vine {
   position: absolute;
   bottom: 0.5rem;
@@ -4593,7 +4527,6 @@ padding: .22rem .75rem;
    Feelings opening spread
    Pages 10 and 11
    ========================================================= */
-
 /* ---------------------------------------------------------
    PAGE 10 — FEELINGS OPENING
    --------------------------------------------------------- */
@@ -4644,7 +4577,6 @@ padding: .22rem .75rem;
 }
 
 /* ---------- PRESSED LAVENDER ---------- */
-
 .feelings-lavender {
   position: absolute;
   right: clamp(0.45rem, 2cqi, 0.8rem);
@@ -4659,7 +4591,6 @@ padding: .22rem .75rem;
 
   pointer-events: none;
 }
-
 .feelings-lavender-stem {
   position: absolute;
   left: 50%;
@@ -5070,7 +5001,6 @@ padding: .22rem .75rem;
    ABOUT HIM CHAPTER
    Pastel cottagecore pages + Moonlight conclusion
    ========================================================= */
-
 /* ---------- SHARED COTTAGECORE PAGES ---------- */
 
 .cottagecore-admiration-divider,
@@ -5811,7 +5741,6 @@ padding: .22rem .75rem;
    FINAL LONG-PAGE FIT REPAIR
    Prevents text and decorations from being cut off
    ========================================================= */
-
 .page-system .long-form-page .page-content,
 .page-system .cottagecore-admiration-page .page-content {
   height: 100%;
@@ -5938,7 +5867,6 @@ padding: .22rem .75rem;
    Pages 24–28
    Soft rain, blue, lilac and peaceful birthday styling
    ========================================================= */
-
 /* ---------- PAGE 24: WISHES DIVIDER ---------- */
 
 .page-system .wishes-section-divider {
@@ -6729,7 +6657,6 @@ padding: .22rem .75rem;
    FINAL CLOSING SECTION
    Pages 31–33
    ========================================================= */
-
 /* ---------------------------------------------------------
    PAGE 31 — FINAL LETTER
    --------------------------------------------------------- */
@@ -6877,7 +6804,6 @@ padding: .22rem .75rem;
 /* ---------------------------------------------------------
    PAGE 32 — FINAL BLESSING
    --------------------------------------------------------- */
-
 .page-system .final-blessing-page {
   overflow: hidden;
 
@@ -7780,3 +7706,8 @@ button,
   display: none !important;
   content: none !important;
 }
+
+
+
+
+
