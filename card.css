@@ -7697,46 +7697,12 @@ button,
   display: none !important;
   content: none !important;
 }
-
-
-/*ANDROID COVER LAYER FIX
-Leaves the desktop design unchanged*/
-
-@media (max-width: 760px) {
-  /* Once the book opens, remove the leather front cover
-     from above the mobile pages */
-  .storybook.is-open .book-cover {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-  }
-
-  /* Keep the complete page system above the inner cover */
-  .storybook.is-open .page-system {
-    z-index: 50 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-  }
-
-  /* Make sure the sheets occupy the full mobile page */
-  .storybook.is-open .turning-sheet,
-  .storybook.is-open .static-right-page {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .storybook.is-open .turning-sheet {
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-  }
-
-  .storybook.is-open .sheet-face {
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
+/* Page 33 stays hidden until all story sheets are turned */
+.static-right-page {
+  display: none !important;
 }
+
+.static-right-page.is-visible-final-page {
+  display: block !important;
+}
+

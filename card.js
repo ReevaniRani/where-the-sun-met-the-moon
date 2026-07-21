@@ -152,6 +152,7 @@ const previousPageCorner =
 
   const finalRightPage =
   document.querySelector(".static-right-page");
+
 let currentSheetIndex = 0;
 
 /*Prevents several page-turn commands from running
@@ -217,19 +218,15 @@ function updateSheetControls() {
       String(!canTurnBackward)
     );
   }
-    /* Show page 33 only after every sheet has been turned */
+
+  /* Keep page 33 hidden until every sheet is turned */
   if (finalRightPage) {
-    const allSheetsAreTurned =
-      currentSheetIndex === storybookSheets.length;
+    const showFinalPage =
+      currentSheetIndex >= storybookSheets.length;
 
     finalRightPage.classList.toggle(
-      "is-final-page-visible",
-      allSheetsAreTurned
-    );
-
-    finalRightPage.setAttribute(
-      "aria-hidden",
-      String(!allSheetsAreTurned)
+      "is-visible-final-page",
+      showFinalPage
     );
   }
 }
