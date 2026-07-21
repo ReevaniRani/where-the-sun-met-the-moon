@@ -7697,12 +7697,66 @@ button,
   display: none !important;
   content: none !important;
 }
-/* Page 33 stays hidden until all story sheets are turned */
-.static-right-page {
-  display: none !important;
-}
+/*
+   FINAL PHONE FIX
+   Keep the working two-page engine on small screens*/
+@media (max-width: 760px) {
+  /* Preserve the same two-page structure used on desktop */
+  .page-system {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    overflow: visible !important;
+  }
 
-.static-right-page.is-visible-final-page {
-  display: block !important;
+  /* Do not hide the permanent left page */
+  .static-left-page {
+    display: block !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  /* Final page remains underneath the turning sheets */
+  .static-right-page {
+    display: block !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    z-index: 1 !important;
+  }
+
+  /* Every turning sheet stays on the right page */
+  .turning-sheet {
+    position: relative !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    transform-origin: left center !important;
+    transform-style: preserve-3d !important;
+    -webkit-transform-style: preserve-3d !important;
+  }
+
+  .sheet-face {
+    position: absolute !important;
+    inset: 0 !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+
+  .sheet-front {
+    transform: rotateY(0deg);
+  }
+
+  .sheet-back {
+    transform: rotateY(180deg);
+  }
+
+  .turning-sheet.is-turned {
+    transform: rotateY(-180deg);
+  }
+
+  /* Restore the book gutter */
+  .page-system::before {
+    display: block !important;
+  }
 }
 
