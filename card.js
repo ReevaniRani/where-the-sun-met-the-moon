@@ -42,7 +42,6 @@ beginButton.addEventListener("click", () => {
 /* Milestone 2
    Part 2B: Wax seal click + envelope opening
    Add below previous JavaScript */
-
 /* ---------- ENVELOPE ELEMENTS ---------- */
 
 const envelope = document.querySelector(".envelope");
@@ -151,6 +150,8 @@ const sheetCornerButtons = Array.from(
 const previousPageCorner =
   document.getElementById("previousPageCorner");
 
+  const finalRightPage =
+  document.querySelector(".static-right-page");
 let currentSheetIndex = 0;
 
 /*Prevents several page-turn commands from running
@@ -214,6 +215,21 @@ function updateSheetControls() {
     previousPageCorner.setAttribute(
       "aria-hidden",
       String(!canTurnBackward)
+    );
+  }
+    /* Show page 33 only after every sheet has been turned */
+  if (finalRightPage) {
+    const allSheetsAreTurned =
+      currentSheetIndex === storybookSheets.length;
+
+    finalRightPage.classList.toggle(
+      "is-final-page-visible",
+      allSheetsAreTurned
+    );
+
+    finalRightPage.setAttribute(
+      "aria-hidden",
+      String(!allSheetsAreTurned)
     );
   }
 }
@@ -348,7 +364,6 @@ function turnPreviousSheet() {
 }
 
 /* ---------- POINTER CONTROLS ---------- */
-
 sheetCornerButtons.forEach((button) => {
   button.addEventListener(
     "click",
