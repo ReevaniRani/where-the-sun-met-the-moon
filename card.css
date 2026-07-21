@@ -7499,7 +7499,6 @@ padding: .22rem .75rem;
 }
 
 /* More elegant music button */
-
 .music-toggle {
   min-height: 2.35rem;
 
@@ -7668,9 +7667,7 @@ button,
   }
 }
 
-
 /* ---------- Realistic Lavender ---------- */
-
 /* Final lavender positioning */
 
 .lavender-bundle {
@@ -7697,7 +7694,6 @@ button,
     drop-shadow(3px 5px 6px rgba(0, 0, 0, 0.25));
 }
 
-
 .lavender-bundle::before,
 .lavender-bundle::after,
 .lavender-bundle span,
@@ -7708,7 +7704,6 @@ button,
 }
 
 /* Fix: first storybook page must stay above the permanent last page */
-
 .static-right-page {
   z-index: 1;
 }
@@ -7717,31 +7712,65 @@ button,
   z-index: 4;
 }
 
+/*FINAL MOBILE STORYBOOK FIX
+   Desktop remains unchanged*/
+
 @media (max-width: 760px) {
+  .page-system {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    perspective: 1800px;
+    -webkit-perspective: 1800px;
+  }
+
+  /* Permanent final page stays at the bottom */
   .static-right-page {
-    z-index: 1 !important;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
+  /* Every turning sheet fills the same page area */
   .turning-sheet {
-    z-index: 4;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    grid-column: auto;
+    grid-row: auto;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  .sheet-face {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .sheet-front {
+    transform: rotateY(0deg);
+  }
+
+  .sheet-back {
+    transform: rotateY(180deg);
+  }
+
+  .turning-sheet.is-turned {
+    transform: rotateY(-180deg);
   }
 }
-/* =========================================================
-   FINAL PAGE VISIBILITY FIX
-   Page 33 stays hidden until every sheet has been turned
-   ========================================================= */
 
-.static-right-page {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-.static-right-page.is-final-page-visible {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-}
 
 
 
