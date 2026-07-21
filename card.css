@@ -1683,7 +1683,6 @@ button {
   }
 }
 /*Milestone 5 Part 2:Premium Paper System CSS Physical sheet+handmadeparchmentfoundation*/
-
 .page-system {
   position: absolute;
   inset: 22px 46px 22px 92px;
@@ -1700,21 +1699,18 @@ button {
     visibility 900ms ease 450ms,
     transform 900ms ease 450ms;
 }
-
 .storybook.is-open .page-system {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: scale(1);
 }
-
 .static-page,
 .turning-sheet,
 .sheet-face {
   min-width: 0;
   min-height: 0;
 }
-
 .static-page,
 .sheet-face {
   position: relative;
@@ -1748,7 +1744,6 @@ button {
   transform-origin: left center;
   transition: transform 1.2s ease;
 }
-
 .sheet-face {
   position: absolute;
   inset: 0;
@@ -7703,74 +7698,45 @@ button,
   content: none !important;
 }
 
-/* Fix: first storybook page must stay above the permanent last page */
-.static-right-page {
-  z-index: 1;
-}
 
-.turning-sheet {
-  z-index: 4;
-}
-
-/*FINAL MOBILE STORYBOOK FIX
-   Desktop remains unchanged*/
+/*ANDROID COVER LAYER FIX
+Leaves the desktop design unchanged*/
 
 @media (max-width: 760px) {
-  .page-system {
-    display: block;
-    position: absolute;
-    overflow: hidden;
-    perspective: 1800px;
-    -webkit-perspective: 1800px;
+  /* Once the book opens, remove the leather front cover
+     from above the mobile pages */
+  .storybook.is-open .book-cover {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
 
-  /* Permanent final page stays at the bottom */
-  .static-right-page {
+  /* Keep the complete page system above the inner cover */
+  .storybook.is-open .page-system {
+    z-index: 50 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Make sure the sheets occupy the full mobile page */
+  .storybook.is-open .turning-sheet,
+  .storybook.is-open .static-right-page {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
   }
 
-  /* Every turning sheet fills the same page area */
-  .turning-sheet {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    grid-column: auto;
-    grid-row: auto;
-    transform-origin: left center;
+  .storybook.is-open .turning-sheet {
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
   }
 
-  .sheet-face {
-    position: absolute;
-    inset: 0;
+  .storybook.is-open .sheet-face {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
-
-  .sheet-front {
-    transform: rotateY(0deg);
-  }
-
-  .sheet-back {
-    transform: rotateY(180deg);
-  }
-
-  .turning-sheet.is-turned {
-    transform: rotateY(-180deg);
-  }
 }
-
-
-
-
