@@ -7,7 +7,7 @@ const envelopeScene = document.getElementById("envelopeScene");
 const beginButton = document.getElementById("beginButton");
 
 const pianoMusic = document.getElementById("pianoMusic");
-
+const pageTurnSound = document.getElementById("pageTurnSound");
 /* ---------- SCENE CONTROL ---------- */
 
 /**
@@ -425,9 +425,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const backgroundMusic =
     document.getElementById("backgroundMusic");
-
-  const pageTurnSound =
-    document.getElementById("pageTurnSound");
 
   const musicToggle =
     document.getElementById("musicToggle");
